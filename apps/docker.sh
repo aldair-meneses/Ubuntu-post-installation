@@ -2,6 +2,11 @@
 
 set -e
 
+if command -v docker &>/dev/null && command -v docker compose &>/dev/null; then
+  gum style --foreground "#00FF9C" "Docker and Docker engine is already installed."
+  return
+fi
+
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
